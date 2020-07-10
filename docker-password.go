@@ -50,7 +50,7 @@ func main() {
 
 	dockerPassword := data[4:]
 
-	err = ioutil.WriteFile(os.Args[0], []byte(dockerPassword), 0644)
+	err = ioutil.WriteFile(os.Args[1], []byte(dockerPassword), 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
