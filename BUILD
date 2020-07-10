@@ -12,6 +12,7 @@ go_library(
     deps = [
         "@com_github_aws_aws_sdk_go_v2//aws/external:go_default_library",
         "@com_github_aws_aws_sdk_go_v2//service/ecr:go_default_library",
+        "@com_github_aws_aws_sdk_go_v2//service/sts:go_default_library",
     ],
 )
 
