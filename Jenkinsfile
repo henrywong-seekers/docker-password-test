@@ -15,7 +15,7 @@ spec:
       checkout scm
 
       container("bazel") {
-        sh "bazel run //:docker-login"
+        sh "bazel build //:docker-login"
       }
     }
 }
