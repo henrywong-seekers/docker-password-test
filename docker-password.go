@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/base64"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -39,7 +40,13 @@ func main() {
 		log.Fatal(err)
 	}
 
-	dockerPassword := *result.AuthorizationData[0].AuthorizationToken
+	authorizationToken := *result.AuthorizationData[0].AuthorizationToken
+
+	dockerPassword, err := base64.StdEncoding.DecodeString(authorizationToken)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	err = ioutil.WriteFile("docker-password", []byte(dockerPassword), 0644)
 	if err != nil {
 		log.Fatal(err)
