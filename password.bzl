@@ -32,8 +32,7 @@ def _docker_login_impl(ctx):
     ctx.actions.run_shell(
         inputs = [password],
         outputs = [output],
-        command = "cat %s | docker login --username AWS --password-stdin $SL_DEVOPS_ECR" % password.path,
-        use_default_shell_env = True,
+        command = "cat %s | docker login --username AWS --password-stdin 483242922252.dkr.ecr.ap-southeast-1.amazonaws.com" % password.path,
     )
 
     return [
