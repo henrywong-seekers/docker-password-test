@@ -21,3 +21,13 @@ go_binary(
     embed = [":go_default_library"],
     visibility = ["//visibility:public"],
 )
+
+load("password.bzl", "docker_login", "get_docker_password")
+
+get_docker_password(
+    name = "docker-password",
+)
+
+docker_login(
+    name = "docker-login",
+)
