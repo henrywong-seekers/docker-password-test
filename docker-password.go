@@ -39,9 +39,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(result.String())
-
-	err = ioutil.WriteFile("docker-password", []byte(result.String()), 0644)
+	dockerPassword := *result.AuthorizationData[0].AuthorizationToken
+	err = ioutil.WriteFile("docker-password", []byte(dockerPassword), 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
