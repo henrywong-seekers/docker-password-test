@@ -15,7 +15,7 @@ spec:
       checkout scm
 
       container("bazel") {
-        sh "bazel run //:seekerslabs-docker-password"
+        sh "bazel run //:docker-password-test"
       }
     }
 }
