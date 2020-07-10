@@ -42,10 +42,12 @@ func main() {
 
 	authorizationToken := *result.AuthorizationData[0].AuthorizationToken
 
-	dockerPassword, err := base64.StdEncoding.DecodeString(authorizationToken)
+	data, err := base64.StdEncoding.DecodeString(authorizationToken)
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	dockerPassword := data[4:]
 
 	err = ioutil.WriteFile("docker-password", []byte(dockerPassword), 0644)
 	if err != nil {
