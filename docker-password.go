@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"os"
 
 	"github.com/aws/aws-sdk-go-v2/aws/external"
 	"github.com/aws/aws-sdk-go-v2/service/ecr"
@@ -49,7 +50,7 @@ func main() {
 
 	dockerPassword := data[4:]
 
-	err = ioutil.WriteFile("docker-password", []byte(dockerPassword), 0644)
+	err = ioutil.WriteFile(os.Args[0], []byte(dockerPassword), 0644)
 	if err != nil {
 		log.Fatal(err)
 	}

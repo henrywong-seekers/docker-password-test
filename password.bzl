@@ -3,6 +3,7 @@ def _get_docker_password(ctx):
 
     ctx.actions.run(
         outputs = [output],
+        arguments = [output.path],
         executable = ctx.executable._docker_password,
     )
 
